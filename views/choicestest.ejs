@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tick Box Form</title>
+  <script>
+    // Function to parse the JSON and create the tick box form
+    function createTickBoxForm(list) {
+      var container = document.getElementById("tick-box-container");
+
+      for (var movie in list) {
+        if (list.hasOwnProperty(movie)) {
+          var movieObj = list[movie];
+          var movieTitle = document.createElement("h2");
+          movieTitle.innerHTML = movie;
+          container.appendChild(movieTitle);
+
+          for (var aspect in movieObj) {
+            if (movieObj.hasOwnProperty(aspect)) {
+              var aspectName = aspect;
+              var aspectValue = movieObj[aspect];
+
+              var aspectCheckbox = document.createElement("input");
+              aspectCheckbox.setAttribute("type", "checkbox");
+              aspectCheckbox.setAttribute("name", aspectName);
+              aspectCheckbox.setAttribute("id", aspectName);
+
+              var aspectLabel = document.createElement("label");
+              aspectLabel.setAttribute("for", aspectName);
+              aspectLabel.innerHTML = aspectValue;
+
+              container.appendChild(aspectCheckbox);
+              container.appendChild(aspectLabel);
+              container.appendChild(document.createElement("br"));
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+  <form action="/" method="post">
+    <div id="tick-box-container"></div>
+    <input type="submit" value="Submit">
+  </form>
+
+  <script>
+    var list = {
+      "snatch": {
+        "Aspect 1": "British Crime Comedy",
+        "Aspect 2": "Interwoven Storylines",
+        "Aspect 3": "Colorful Characters",
+        "Aspect 4": "Fast-paced Narrative",
+        "Aspect 5": "Clever Plot Twists"
+      },
+      "the wolf of wall street": {
+        "Aspect 1": "Wall Street Excesses",
+        "Aspect 2": "True Story Adaptation",
+        "Aspect 3": "High-Flying Lifestyle",
+        "Aspect 4": "Scathing Satire",
+        "Aspect 5": "Dynamic Performances"
+      }
+    };
+
+    // Call the function to create the tick box form
+    createTickBoxForm(list);
+  </script>
+</body>
+</html>

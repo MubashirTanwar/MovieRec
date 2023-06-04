@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Movie Form</title>
+</head>
+<body>
+  <h1>Movie Form</h1>
+  <h2>Select what aspects you like about those movies (you can select multiple)</h2>
+  <form action="/result" method="post">
+    <% Object.keys(movies).forEach(function(movie) { %>
+      <h3><%= movie %></h3>
+      <% Object.keys(movies[movie]).forEach(function(aspect) { %>
+        <input type="checkbox" id="<%= movie %>-<%= aspect %>" name="<%= movie %>-<%= aspect %>" value="<%= movies[movie][aspect] %>">
+        <label for="<%= movie %>-<%= aspect %>"><%= movies[movie][aspect] %></label><br>
+      <% }); %>
+      <br>
+    <% }); %>
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>

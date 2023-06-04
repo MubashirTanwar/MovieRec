@@ -1,0 +1,17 @@
+<!-- recommendation.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Recommendation</title>
+</head>
+<body>
+    <h1>Movie Recommendation</h1>
+    <p>Based on your preferences, we recommend the following movies:</p>
+    <ul>
+    <% Object.keys(movieDescriptions).forEach(function(movie) { %>
+        <li><strong><%= movie %>:</strong> <%= movieDescriptions[movie] %></li>
+    <% }) %>
+    </ul>
+</body>
+</html>
