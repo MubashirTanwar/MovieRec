@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
   });
 // app.set('views', path.join(__dirname, 'views'));
 // PLEASE DONT USE MY API KEY I AM STILL FIGURING OUT HOW TO HIDE IT
-const API_KEY = "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";
+const API_KEY = " - - - -  ADD API KEY HERE - - - - ";
 
 app.post("/", function(req,res){
     const movie1 = req.body.movie1;
